@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Style Profiles</title>
+    <style>
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        /* Search bar styling */
+        .search-bar {
+            width: 100%;
+            padding: 15px;
+            background-color: #0073b1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-bar input {
+            width: 50%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        /* Profile container styling */
+        .profiles-container {
+            margin: 20px;
+        }
+
+        .profile-card {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .profile-info h2 {
+            font-size: 18px;
+            margin: 0;
+        }
+
+        .profile-info p {
+            color: #666;
+            margin: 5px 0;
+        }
+
+        .profile-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .profile-buttons button {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .profile-buttons .connect {
+            background-color: #0073b1;
+            color: white;
+        }
+
+        .profile-buttons .message {
+            background-color: #ddd;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <input type="text" placeholder="Search profiles...">
+    </div>
+
+    <!-- Profiles Container -->
+    <div class="profiles-container">
+        
+        <!-- Profile Card 1 -->
+        <div class="profile-card">
+            <img src="profile1.jpg" alt="Profile Image" class="profile-image">
+            <div class="profile-info">
+                <h2>John Doe</h2>
+                <p>Software Engineer at TechCompany</p>
+            </div>
+            <div class="profile-buttons">
+                <button class="connect">Connect</button>
+                <button class="message">Message</button>
+            </div>
+        </div>
+
+        <!-- Profile Card 2 -->
+        <div class="profile-card">
+            <img src="profile2.jpg" alt="Profile Image" class="profile-image">
+            <div class="profile-info">
+                <h2>Jane Smith</h2>
+                <p>Product Manager at BizCorp</p>
+            </div>
+            <div class="profile-buttons">
+                <button class="connect">Connect</button>
+                <button class="message">Message</button>
+            </div>
+        </div>
+
+        <!-- Profile Card 3 -->
+        <div class="profile-card">
+            <img src="profile3.jpg" alt="Profile Image" class="profile-image">
+            <div class="profile-info">
+                <h2>Emma Johnson</h2>
+                <p>UI/UX Designer at DesignWorks</p>
+            </div>
+            <div class="profile-buttons">
+                <button class="connect">Connect</button>
+                <button class="message">Message</button>
+            </div>
+        </div>
+
+        <!-- Profile Card 4 -->
+        <div class="profile-card">
+            <img src="profile4.jpg" alt="Profile Image" class="profile-image">
+            <div class="profile-info">
+                <h2>Michael Brown</h2>
+                <p>Data Scientist at AnalyticsLab</p>
+            </div>
+            <div class="profile-buttons">
+                <button class="connect">Connect</button>
+                <button class="message">Message</button>
+            </div>
+        </div>
+
+        <!-- Profile Card 5 -->
+        <div class="profile-card">
+            <img src="profile5.jpg" alt="Profile Image" class="profile-image">
+            <div class="profile-info">
+                <h2>Susan Lee</h2>
+                <p>Marketing Specialist at AdVision</p>
+            </div>
+            <div class="profile-buttons">
+                <button class="connect">Connect</button>
+                <button class="message">Message</button>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

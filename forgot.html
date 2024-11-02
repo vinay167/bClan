@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Password</title>
+    <link rel="stylesheet" href="forgot.css">
+    <!-- Include Firebase App and Auth SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js"></script>
+</head>
+<body>
+    <div class="forgot-container">
+        <h2>Reset Your Password</h2>
+        <form id="forgotForm">
+            <div class="input-group">
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <button type="submit" id="reset">Send Reset Link</button>
+            <p id="message"></p>
+        </form>
+        <p class="login-text">Remembered your password? <a href="login.html">Login</a></p>
+    </div>
+    <!-- Load your custom JavaScript after Firebase SDKs -->
+    <script type="module" src="./forgot.js"></script>
+</body>
+</html>
