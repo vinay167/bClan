@@ -1,0 +1,201 @@
+/* General Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('Images/bClan.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Container with Blur Effect */
+.register-container {
+    width: 90%;
+    max-width: 500px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+    backdrop-filter: blur(10px);
+}
+
+/* Dropdown Styles */
+.dropdown {
+    display: none;
+    position: absolute;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #000;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+/* Dropdown Item Styles */
+.dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background-color: #f0f0f0;
+}
+
+/* Heading */
+h2 {
+    margin-bottom: 15px;
+    font-size: 28px;
+    color: black; /* Change color to black */
+    font-weight: bold; /* Ensure the text is bold */
+}
+
+/* Form and Input Styles */
+form .input-group {
+    margin-bottom: 15px;
+    text-align: left;
+    position: relative;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="file"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: none; /* Removed border */
+    border-bottom: 2px solid black; /* Changed underline color to black */
+    outline: none;
+    transition: all 0.3s ease;
+    background: transparent;
+    color: #fff;
+    font-weight: bold; /* Make text bold */
+}
+
+/* Password Container Styles */
+.password-container {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 12px; /* Adjust based on input height */
+    cursor: pointer;
+}
+
+/* Placeholder Color */
+input::placeholder {
+    color: black; /* Change placeholder color to black */
+    font-weight: bold; /* Make placeholder text bold */
+}
+
+/* Focus Effect on Inputs and Dropdowns */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="file"]:focus,
+select:focus {
+    border-bottom-color: #74ebd5; /* Change underline color on focus */
+}
+
+/* Button Styles */
+button {
+    width: 100%;
+    padding: 10px;
+    background: black; /* Black background */
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #333; /* Darker shade on hover */
+}
+
+/* Message Display */
+#message {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #fff;
+}
+
+/* Loading Overlay */
+.loading-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Ensure it's on top */
+    display: flex; /* Use flexbox to center content */
+}
+
+/* Loader animation */
+.loader {
+    border: 8px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top: 8px solid #fff;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 600px) {
+    .register-container {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="file"],
+    select {
+        padding: 8px;
+    }
+
+    button {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
+
+/* Login Link Styles */
+.login-link {
+    font-weight: bold; /* Make text bold */
+    color: black; /* Change color to black */
+    text-decoration: none; /* Remove underline */
+}
+
+.login-link:hover {
+    text-decoration: underline; /* Optional: add underline on hover */
+}
