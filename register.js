@@ -43,7 +43,7 @@ function registerUser(e) {
         .then(() => {
             document.getElementById("message").textContent = "Registration successful!";
             document.getElementById("registerForm").reset();
-            window.location.href = "login.html";
+            window.location.href = "Login.html";
         })
         .catch(error => {
             console.error("Error during registration: ", error);
