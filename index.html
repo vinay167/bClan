@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ramdeep — Precision Weighing Scales for Gold & Silver</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <nav class="nav">
+    <a href="#home" class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#d8b872" stroke-width="1.6" stroke-linecap="round"><path d="M12 3v18M5 21h14M12 5l-6 3 6-3 6 3-6-3z"/><path d="M6 8l-2.5 5a3 3 0 0 0 5 0L6 8zM18 8l-2.5 5a3 3 0 0 0 5 0L18 8z"/></svg>
+      RAM<em>DEEP</em>
+    </a>
+    <div class="nav-links" id="navLinks"></div>
+  </nav>
+  <div class="ticks"></div>
+</header>
+
+<main>
+
+<!-- ================= HOME ================= -->
+<section class="view" id="view-home">
+  <div class="hero">
+    <div class="hero-in">
+      <div>
+        <p class="eyebrow">Est. Chandigarh · Precision instruments since 1987</p>
+        <h1>Scales the bullion trade <em>trusts to the milligram.</em></h1>
+        <p>Ramdeep builds Legal Metrology–approved jewellery and bullion balances for gold and silver merchants. Every unit is stamped, calibrated and delivered with its verification certificate.</p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="#home" onclick="scrollToShop(event)">Browse scales</a>
+          <a class="btn btn-ghost" href="#track">Track an order</a>
+        </div>
+      </div>
+      <div>
+        <div class="readout" aria-hidden="true">
+          <div class="lbl"><span>RD-100 · CAL OK</span><span>MAX 100 g · e = 1 mg</span></div>
+          <div class="num" id="heroNum">0.000<small> g</small></div>
+          <div class="stable"><span class="dot"></span>STABLE · ZERO TRACKING ON</div>
+        </div>
+        <div class="hero-stats">
+          <div><b>±0.001 g</b><span>Accuracy</span></div>
+          <div><b>2 yr</b><span>Warranty</span></div>
+          <div><b>5,000+</b><span>Jewellers served</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="ticks light"></div>
+  </div>
+
+  <div class="wrap" id="shopTop">
+    <div class="page-head">
+      <p class="eyebrow">Catalogue</p>
+      <h1>Weighing scales for gold &amp; silver</h1>
+    </div>
+    <div class="grid" id="productGrid"></div>
+  </div>
+</section>
+
+<!-- ================= PRODUCT DETAIL ================= -->
+<section class="view" id="view-product">
+  <div class="wrap">
+    <p class="crumb"><a href="#home">Catalogue</a> / <span id="pdCrumb"></span></p>
+    <div class="pd" id="pdBody"></div>
+  </div>
+</section>
+
+<!-- ================= CHECKOUT ================= -->
+<section class="view" id="view-checkout">
+  <div class="wrap">
+    <div class="page-head"><p class="eyebrow">Secure checkout</p><h1>Delivery details</h1></div>
+    <div class="co">
+      <div class="panel">
+        <h2>Your information</h2>
+        <div class="frow">
+          <div><label>Full name <span class="req">*</span></label><input id="c_name" placeholder="e.g. Suresh Verma"></div>
+          <div><label>Mobile number <span class="req">*</span></label><input id="c_phone" inputmode="numeric" maxlength="10" placeholder="10-digit mobile"></div>
+        </div>
+        <label>Email <span class="req">*</span></label><input id="c_email" type="email" placeholder="you@example.com">
+        <label>Shop / firm name</label><input id="c_firm" placeholder="Optional — for GST invoice">
+        <label>GSTIN</label><input id="c_gst" placeholder="Optional — 15-character GSTIN">
+        <label>Address <span class="req">*</span></label><textarea id="c_addr" rows="2" placeholder="Shop no., street, landmark"></textarea>
+        <div class="frow">
+          <div><label>City <span class="req">*</span></label><input id="c_city" placeholder="City"></div>
+          <div><label>PIN code <span class="req">*</span></label><input id="c_pin" inputmode="numeric" maxlength="6" placeholder="6-digit PIN"></div>
+        </div>
+        <label>State <span class="req">*</span></label>
+        <select id="c_state"><option value="">Select state / UT</option></select>
+        <label>Order notes</label><textarea id="c_notes" rows="2" placeholder="Anything we should know (optional)"></textarea>
+        <p class="err" id="coErr"></p>
+        <div style="margin-top:20px"><button class="btn btn-gold btn-wide" onclick="placeOrder()">Place order</button></div>
+      </div>
+      <div class="summary panel">
+        <h2>Order summary</h2>
+        <div id="coSummary"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ORDER CONFIRMED ================= -->
+<section class="view" id="view-confirm">
+  <div class="wrap"><div class="track-box" style="text-align:center">
+    <svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="#2e7d54" stroke-width="1.7" style="margin:0 auto 14px"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.6 2.6L16 9.5"/></svg>
+    <h1 style="font-size:27px">Order placed</h1>
+    <p style="color:var(--muted);margin-top:8px;font-size:14.5px">Save this order ID — you'll use it (with your mobile number) to track delivery.</p>
+    <p class="price" style="font-size:26px;margin:16px 0 4px" id="cfId"></p>
+    <p style="font-size:13.5px;color:var(--muted)" id="cfMeta"></p>
+    <div style="display:flex;gap:10px;justify-content:center;margin-top:22px;flex-wrap:wrap">
+      <a class="btn btn-gold" href="#track">Track this order</a>
+      <a class="btn btn-line" href="#home">Continue shopping</a>
+    </div>
+  </div></div>
+</section>
+
+<!-- ================= TRACK ORDER ================= -->
+<section class="view" id="view-track">
+  <div class="wrap">
+    <div class="page-head" style="text-align:center"><p class="eyebrow">Order status</p><h1>Track your order</h1></div>
+    <div class="track-box">
+      <label>Order ID</label><input id="t_id" placeholder="e.g. RD-482913" style="font-family:var(--mono)">
+      <label>Registered mobile number</label><input id="t_phone" inputmode="numeric" maxlength="10" placeholder="10-digit mobile used at checkout">
+      <p class="err" id="tErr"></p>
+      <div style="margin-top:18px"><button class="btn btn-ink btn-wide" onclick="trackOrder()">Show status</button></div>
+    </div>
+    <div class="track-box" id="tResult" style="display:none;margin-top:18px"></div>
+    <div style="height:50px"></div>
+  </div>
+</section>
+
+<!-- ================= LOGIN ================= -->
+<section class="view" id="view-login">
+  <div class="auth"><div class="ticks"></div><div class="inner">
+    <h1>Sign in</h1><p class="sub">Welcome back to Ramdeep.</p>
+    <p class="notice" id="loginNote" style="margin-top:14px"></p>
+    <label>Email</label><input id="l_email" type="email" placeholder="you@example.com">
+    <label>Password</label><input id="l_pass" type="password" placeholder="Your password">
+    <a class="forgot-link" href="#forgot">Forgot password?</a>
+    <p class="err" id="lErr"></p>
+    <div style="margin-top:18px"><button class="btn btn-gold btn-wide" onclick="doLogin()">Sign in</button></div>
+    <p class="alt">New here? <a href="#signup">Create an account</a></p>
+  </div></div>
+</section>
+
+<!-- ================= SIGNUP ================= -->
+<section class="view" id="view-signup">
+  <div class="auth"><div class="ticks"></div><div class="inner">
+    <h1>Create account</h1><p class="sub">Track orders and check out faster.</p>
+    <label>Full name</label><input id="s_name" placeholder="Your name">
+    <label>Mobile number</label><input id="s_phone" inputmode="numeric" maxlength="10" placeholder="10-digit mobile">
+    <label>Email</label><input id="s_email" type="email" placeholder="you@example.com">
+    <label>Password</label><input id="s_pass" type="password" placeholder="Minimum 6 characters">
+    <p class="err" id="sErr"></p>
+    <div style="margin-top:18px"><button class="btn btn-gold btn-wide" onclick="doSignup()">Create account</button></div>
+    <p class="alt">Already registered? <a href="#login">Sign in</a></p>
+  </div></div>
+</section>
+
+<!-- ================= FORGOT PASSWORD ================= -->
+<section class="view" id="view-forgot">
+  <div class="auth"><div class="ticks"></div><div class="inner">
+    <h1>Reset password</h1><p class="sub">We'll verify your account, then let you set a new password.</p>
+    <div id="fp1">
+      <label>Registered email</label><input id="f_email" type="email" placeholder="you@example.com">
+      <p class="err" id="fErr1"></p>
+      <div style="margin-top:18px"><button class="btn btn-ink btn-wide" onclick="fpSendCode()">Send reset code</button></div>
+    </div>
+    <div id="fp2" style="display:none">
+      <div class="notice show" id="fCodeNote"></div>
+      <label>6-digit reset code</label><input id="f_code" inputmode="numeric" maxlength="6" placeholder="Enter the code" style="font-family:var(--mono);letter-spacing:.3em">
+      <label>New password</label><input id="f_new" type="password" placeholder="Minimum 6 characters">
+      <label>Confirm new password</label><input id="f_new2" type="password" placeholder="Repeat new password">
+      <p class="err" id="fErr2"></p>
+      <div style="margin-top:18px"><button class="btn btn-gold btn-wide" onclick="fpReset()">Set new password</button></div>
+    </div>
+    <p class="alt"><a href="#login">Back to sign in</a></p>
+  </div></div>
+</section>
+
+<!-- ================= MY ACCOUNT ================= -->
+<section class="view" id="view-account">
+  <div class="wrap">
+    <div class="page-head"><p class="eyebrow" id="accHello">My account</p><h1>My orders</h1></div>
+    <div id="accBody"></div>
+  </div>
+</section>
+
+<!-- ================= ADMIN ================= -->
+<section class="view" id="view-admin">
+  <div class="wrap">
+    <div class="page-head"><p class="eyebrow">Ramdeep · back office</p><h1>Admin — all orders</h1></div>
+    <div class="admin-stats" id="adminStats"></div>
+    <div id="adminBody"></div>
+  </div>
+</section>
+
+</main>
+
+
+<a class="wa-fab" href="https://wa.me/919876543210?text=Hi%20Ramdeep%2C%20I%20want%20to%20know%20more%20about%20your%20weighing%20scales." target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 32 32" fill="#fff"><path d="M16 3C9.4 3 4 8.3 4 14.9c0 2.6.8 5 2.3 7L4 29l7.3-2.2c1.9 1 3.9 1.5 4.7 1.5 6.6 0 12-5.3 12-11.9S22.6 3 16 3zm0 21.7c-1.6 0-3.3-.4-4.7-1.3l-.3-.2-4.3 1.3 1.3-4.1-.2-.3c-1.1-1.6-1.7-3.5-1.7-5.2C6.1 9.5 10.5 5.2 16 5.2s9.9 4.3 9.9 9.7-4.4 9.8-9.9 9.8zm5.5-7.3c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.2s-.8 1-1 1.2c-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.7s1.2 3.1 1.3 3.3c.2.2 2.3 3.6 5.7 5 .8.3 1.4.5 1.9.7.8.2 1.5.2 2.1.1.6-.1 1.8-.7 2.1-1.5.3-.7.3-1.3.2-1.5-.1-.1-.3-.2-.6-.4z"/></svg>
+</a>
+
+<footer>
+  <div class="ticks light"></div>
+  <div class="foot">
+    <div>
+      <div class="fl">RAM<em>DEEP</em></div>
+      <div style="margin-top:8px">Precision weighing scales for gold &amp; silver.<br>SCO 12, Sector 22, Chandigarh · +91 98765 43210</div>
+    </div>
+    <div>Legal Metrology (Govt. of India) approved models<br>Stamped &amp; verified before dispatch · 2-year warranty<br><span style="font-family:var(--mono);font-size:12px">Mon–Sat · 10:00–19:00 IST</span></div>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
